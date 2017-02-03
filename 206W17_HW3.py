@@ -29,7 +29,7 @@ def parse_counted_words(s):
     return matches
 
 
-print(parse_counted_words('5 watermelons, 13 pineapples, and 1 papaya.'))
+
 
 
 
@@ -37,8 +37,12 @@ print(parse_counted_words('5 watermelons, 13 pineapples, and 1 papaya.'))
 ## PART 2: 200 points
 
 ## We have provided a text file computer_paths.txt. It's not incredibly long -- you can scan through it, but do NOT hard code your answers! Each line contains 1 filesystem path.
-
+paths= open("computer_paths.txt", "r")
+paths_text= paths.read()
 ## (a) Write Python code to determine how many of these paths identify FILES, not directories. Save that number in the variable file_paths_num.
+regex_a= r"\.+[(\w\d)]+"
+a_matches= re.findall(regex_a, paths_text)
+file_paths_num= len(a_matches)
 
 ## (b) Write Python code to determine how many of these paths are FULL paths, not relative paths. Save that number in the variable full_paths_num.
 
